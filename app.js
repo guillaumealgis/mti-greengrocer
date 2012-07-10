@@ -8,6 +8,25 @@ var express = require('express')
 
 var app = module.exports = express.createServer();
 
+// Unique id
+(function() {
+    function S4() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    }
+    function guid() {
+       return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+    }
+
+    if ( typeof Object.prototype.uniqueId == "undefined" ) {
+        Object.prototype.uniqueId = function() {
+            if ( typeof this.__uniqueid == "undefined" ) {
+                this.__uniqueid = guid();
+            }
+            return this.__uniqueid;
+        };
+    }
+})();
+
 // Configuration
 
 app.configure(function(){

@@ -1,8 +1,8 @@
 
 /*
- * GET home page.
+ * Exports submodules
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' })
-};
+exports.fruit = require('./fruit');
+
+exports.vegetable = require('./vegetable');

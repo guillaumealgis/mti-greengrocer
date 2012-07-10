@@ -47,8 +47,19 @@ app.configure('production', function(){
 });
 
 // Routes
+//   Fruit
+app.get('/fruit/', routes.fruit.list);
+app.get('/fruit/:id', routes.fruit.show);
+app.put('/fruit/:id', routes.fruit.update);
+app.post('/fruit/', routes.fruit.add);
+app.del('/fruit/:id', routes.fruit.remove);
 
-// FIXME: Add routes
+//   Vegetable
+app.get('/vegetable/', routes.vegetable.list);
+app.get('/vegetable/:id', routes.vegetable.show);
+app.put('/vegetable/:id', routes.vegetable.update);
+app.post('/vegetable/', routes.vegetable.add);
+app.del('/vegetable/:id', routes.vegetable.remove);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
